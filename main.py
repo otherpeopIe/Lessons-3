@@ -1,11 +1,14 @@
 #function -- just a chunk of code that you can rerun, can take inputs but doesn't have to, 
 #            can return stuff but doesn't have to 
 
+from player import *
+#* is a programming thing meaning all -- but it also means multiplication a lot of times
+
 #Start function, launches our game
 def Start(): 
     print("Hello World!") #intro message
     newPlayer = CreatePlayer()
-    print("HP: " + newPlayer.health)
+    newPlayer.displaystats()
     return "bye" #returns exit message
 
 #Create Player function handles player creation
@@ -16,9 +19,9 @@ def CreatePlayer():
     faction = SelectFaction()
     print("Indeed. Welcome " + name + ", a wise " + faction)
     health = 100
-    createdPlayer = Player(name, faction, health)
+    defense = 100
+    createdPlayer = Player(name, faction, health, defense)
     return createdPlayer
-
    
 #Handles validating players class selection
 def SelectFaction():
@@ -52,13 +55,31 @@ def SelectFaction():
 
     return classChoice 
 
+
+
 #declaring a new class -- this is how you create a new type
+#there are built in types - number, string, bool; if we want to create our own type, we create a class
+#a class is made up of the built in types 
+
 #definition
-class Player:
-    def __init__(self, name, faction, health):
-        self.name = name
-        self.faction = faction
-        self.health = health
+
+#the init function here is called a constructor -- it constructs a new instance of this class
+#its constructed from built in types - hence the constructor 
+#a constructor is a function that creates the object / an instance of a class
+
+
+
+
+#you use square brackets for an array in pretty much all languages
+#an array is just a list of many things that you assign to a variable
+#its a list of a type of object
+
+#in programming arrays start at 0 not 1 -- the first item in the list is zero, the second item in the list is one -- zero is the first digit
+
+
+
+
+
 
 # definition vs. instance
 # definition -- we are declaring a new class, creating a new type using the class keyword
@@ -70,6 +91,8 @@ class Player:
 
 #Reminder: arrays next lesson
 
+
+#this is perfect.
 
 
 #entry point
