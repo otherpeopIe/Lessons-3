@@ -23,33 +23,60 @@ def CreatePlayer():
     createdPlayer = Player(name, faction, health, defense)
     return createdPlayer
    
+
+#Exception Handling 
+
+def isnumber(s):
+    try:
+        int(s)
+        return True 
+    
+    except:
+        return False
+    
+
+def getelement(i, arr):
+    try:
+        return arr[i]
+    
+    except:
+        return None
+    
+
+
+
+
+
 #Handles validating players class selection
 def SelectFaction():
     exit = False #bool to use to exit loop -- (Bool is True or False)
+
+    factions = ["Knight", "Mage", "Druid", "Shaman"] 
+
     while(exit == False): #if bool 'exit' is true, exit loop
                           #while exit is false, run loop code
-        exit = True
-        print("Select class")
-        print("a: Knight")
-        print("b: Mage")
-        print("c: Druid")
-        print("d: Shaman")
-        
+        exit = False
+
+        numfactions = len(factions)
+
+        for i in range(numfactions):
+            print(str(i + 1) + ". " + factions[i])
+
+
         classChoice = input() #input without prompt (no string input) 
                               #string is any text
                               #reading input suspends the thread
+
+    
+        if isnumber(classChoice):
+            selection = getelement(int(classChoice) - 1, factions)
+            if selection != None: 
+                classChoice = selection
+                exit = True
         
-        if (classChoice == "a"): # == is saying is it equal to (like a question, does this equal this?), = is an assignment (this now equals this)
-            classChoice = "Knight"
-        elif (classChoice == "b"):
-            classChoice = "Mage"
-        elif (classChoice == "c"):
-            classChoice = "Druid"
-        elif (classChoice == "d"):
-            classChoice = "Shaman"
-        else:
+        if exit == False:
             print("Not valid selection")
-            exit = False #wasnt given valid selection, you cannot exit)
+        
 
         #end of while loop, jump back to top and check if exit is true
 
@@ -93,6 +120,9 @@ def SelectFaction():
 
 
 #this is perfect.
+#this just became a great lesson.
+
+#Scalabiltiy 
 
 
 #entry point
