@@ -60,7 +60,7 @@ def SelectFaction():
         numfactions = len(factions)
 
         for i in range(numfactions):
-            print(str(i + 1) + ". " + factions[i])
+            print(str(i + 1) + ". " + factions[i]) #1. Knight -- example of what the end result is doing
 
 
         classChoice = input() #input without prompt (no string input) 
